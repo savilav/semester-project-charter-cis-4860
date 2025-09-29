@@ -3,28 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Professional Portfolio Website – Project Charter</title>
+  <title>IT Career Launch Portfolio – Project Charter</title>
   <meta name="color-scheme" content="dark light" />
   <style>
     /* =====================
-       DESIGN TOKENS
+       DESIGN TOKENS (Light with dark accents)
     ======================*/
     :root{
-      --bg:#0b0c0e;          /* canvas */
-      --surface:#121418;     /* cards */
-      --muted:#1a1d23;       /* section headers */
-      --ink:#e8ebf0;         /* text */
-      --ink-2:#b7c1d1;       /* secondary text */
-      --brand:#8b5cf6;       /* primary (purple) */
-      --brand-2:#60a5fa;     /* secondary (blue) */
+      --bg:#ffffff;          /* canvas (light) */
+      --surface:#fbfbfc;     /* cards */
+      --muted:#eef2f6;       /* section headers */
+      --ink:#0d1b2a;         /* text */
+      --ink-2:#4a5568;       /* secondary text */
+      --brand:#7c3aed;       /* primary purple */
+      --brand-2:#2563eb;     /* secondary blue */
       --danger:#ef4444;      /* out of scope */
       --ring: 0 0 0 2px var(--brand) inset;
       --radius:16px;
-      --shadow:0 12px 32px rgba(0,0,0,.35);
-      --ok:#10b981;
+      --shadow:0 10px 24px rgba(16,24,40,.10);
+      --gradient: radial-gradient(1200px 800px at 80% -10%, rgba(124,58,237,.10), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(37,99,235,.07), transparent 60%);
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --surface:#fbfbfc; --muted:#eef2f6; --ink:#0d1b2a; --ink-2:#4a5568; --brand:#7c3aed; --brand-2:#2563eb; --shadow:0 10px 24px rgba(16,24,40,.10); }
+    html.dark{
+      --bg:#0b0c0e; --surface:#121418; --muted:#1a1d23; --ink:#e8ebf0; --ink-2:#b7c1d1;
+      --brand:#8b5cf6; --brand-2:#60a5fa; --shadow:0 12px 32px rgba(0,0,0,.35);
+      --gradient: radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.10), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(96,165,250,.07), transparent 60%);
     }
 
     /* Base */
@@ -32,10 +36,7 @@
     html,body{ height:100% }
     body{
       margin:0;
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.10), transparent 60%),
-        radial-gradient(900px 600px at -10% 20%, rgba(96,165,250,.07), transparent 60%),
-        var(--bg);
+      background: var(--gradient), var(--bg);
       color:var(--ink);
       font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
     }
@@ -43,13 +44,13 @@
     a:hover{ text-decoration:underline }
 
     /* Topbar */
-    .topbar{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid rgba(255,255,255,.06) }
+    .topbar{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid rgba(16,24,40,.08) }
     .topbar-inner{ max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:10px clamp(12px,4vw,24px) }
     .brandmark{ display:flex; align-items:center; gap:8px; font-weight:900; letter-spacing:.2px }
     .dot{ width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2)); }
     .spacer{ flex:1 }
     .toolbar{ display:flex; gap:8px }
-    .btn{ border:1px solid rgba(255,255,255,.14); background:var(--muted); color:var(--ink); padding:8px 12px; border-radius:12px; cursor:pointer; font-weight:700 }
+    .btn{ border:1px solid rgba(16,24,40,.14); background:var(--muted); color:var(--ink); padding:8px 12px; border-radius:12px; cursor:pointer; font-weight:700 }
     .btn:focus-visible{ outline:var(--ring) }
 
     /* Layout */
@@ -57,27 +58,27 @@
     @media (max-width: 1020px){ .layout{ grid-template-columns: 1fr } }
 
     /* Sidebar */
-    .sidebar{ position: sticky; top: 70px; align-self:start; background: var(--surface); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding:12px }
-    .search{ display:flex; align-items:center; gap:10px; background:var(--muted); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:8px 10px; }
+    .sidebar{ position: sticky; top: 70px; align-self:start; background: var(--surface); border:1px solid rgba(16,24,40,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding:12px }
+    .search{ display:flex; align-items:center; gap:10px; background:var(--muted); border:1px solid rgba(16,24,40,.08); border-radius:12px; padding:8px 10px; }
     .search input{ background:transparent; border:0; outline:0; color:var(--ink); width:100% }
     .toc{ margin:10px 0 0; padding:0; list-style:none; max-height:65vh; overflow:auto }
     .toc a{ display:block; padding:10px 12px; border-radius:10px; color:var(--ink); font-weight:700; font-size:.95rem; text-decoration:none }
-    .toc a:hover, .toc a[aria-current="true"]{ background:linear-gradient(180deg, rgba(139,92,246,.16), rgba(96,165,250,.10)); outline: var(--ring) }
+    .toc a:hover, .toc a[aria-current="true"]{ background:linear-gradient(180deg, color-mix(in oklab, var(--brand) 18%, transparent), color-mix(in oklab, var(--brand-2) 12%, transparent)); outline: var(--ring) }
 
     /* Hero */
-    .hero{ background: linear-gradient(180deg, rgba(139,92,246,.10), rgba(96,165,250,.06)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .hero{ background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 10%, transparent), color-mix(in oklab, var(--brand-2) 8%, transparent)); border:1px solid rgba(16,24,40,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
     .kicker{ letter-spacing:.2em; text-transform:uppercase; color:var(--ink-2); font-weight:800; font-size:.8rem }
     h1{ margin:.25rem 0 0; font-size:2rem; line-height:1.2 }
     .meta{ color:var(--ink-2) }
 
     /* Sections */
     main{ display:flex; flex-direction:column; gap: 20px }
-    section.card{ background: var(--surface); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden }
-    details{ border-top:1px solid rgba(255,255,255,.06) }
+    section.card{ background: var(--surface); border:1px solid rgba(16,24,40,.08); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden }
+    details{ border-top:1px solid rgba(16,24,40,.08) }
     details:first-of-type{ border-top:0 }
     summary{ list-style:none; cursor:pointer; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--muted); }
     summary::-webkit-details-marker{ display:none }
-    .h2{ margin:0; font-size:1.2rem; color:var(--brand); font-weight:900 }
+    .h2{ margin:0; font-size:1.2rem; color:var(--brand); font-weight:900; display:flex; align-items:center; gap:.6rem }
     .chev{ transition: transform .25s ease }
     details[open] .chev{ transform: rotate(180deg) }
     .content{ padding: 18px 22px 22px }
@@ -92,27 +93,20 @@
     /* Tables */
     .table-wrap{ overflow:auto; position:relative }
     table{ width:100%; border-collapse: collapse; font-size:.95rem }
-    th, td{ text-align:left; padding:10px 8px; border-bottom:1px solid rgba(255,255,255,.10) }
+    th, td{ text-align:left; padding:10px 8px; border-bottom:1px solid rgba(16,24,40,.10) }
     thead th{ position:sticky; top:0; background:var(--muted) }
 
     /* Images */
     .media{ text-align:center; margin-top:16px }
-    .media img{ width:100%; max-width:900px; border-radius:12px; box-shadow:0 0 15px rgba(139,92,246,.25); background:var(--surface); border:1px solid rgba(255,255,255,.08); display:block; margin:0 auto }
+    .media img{ width:100%; max-width:900px; border-radius:12px; box-shadow:0 0 15px color-mix(in oklab, var(--brand) 25%, transparent); background:var(--surface); border:1px solid rgba(16,24,40,.08); display:block; margin:0 auto }
 
     /* Scope cards */
     .grid{ display:grid; gap:12px }
     @media (min-width: 900px){ .grid-3{ grid-template-columns: 1fr 1fr 1fr } }
-    .scope{ background:#0f1115; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px; border-left:4px solid transparent }
+    .scope{ background:color-mix(in oklab, var(--surface) 88%, #0f1115); border:1px solid rgba(16,24,40,.08); border-radius:12px; padding:14px; border-left:4px solid transparent }
     .scope.in{ border-left-color: var(--brand) }
     .scope.road{ border-left-color: var(--brand-2) }
     .scope.out{ border-left-color: var(--danger) }
-
-    /* Small badge to mark edits */
-    .badge{
-      display:inline-block; margin-left:.5rem; padding:.15rem .5rem; border-radius:8px;
-      background:rgba(16,185,129,.15); color:#a7f3d0; font-size:.75rem; font-weight:800; letter-spacing:.02em;
-      border:1px solid rgba(16,185,129,.35);
-    }
 
     /* Print */
     @media print{
@@ -152,15 +146,21 @@
       <!-- Hero header -->
       <header class="hero">
         <div class="kicker">Managing IT Projects · Fall 2025</div>
-        <h1>Professional Portfolio Website</h1>
+        <h1>IT Career Launch Portfolio</h1>
         <p class="meta">Student: <strong>Samuel Avila Varela</strong> · Course: <strong>Managing IT Projects</strong></p>
       </header>
 
       <main id="sections" role="main">
-        <!-- Student Information -->
+        <!-- =========================
+             Student Information
+        ==========================-->
         <section class="card" id="student-info">
           <details open>
-            <summary><h2 class="h2">Student Information</h2><a class="anchor" href="#student-info" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">🎓 Student Information</h2>
+              <a class="anchor" href="#student-info" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
               <div class="table-wrap">
                 <table>
@@ -175,119 +175,113 @@
           </details>
         </section>
 
-        <!-- 1 -->
+        <!-- =========================
+             1. Project Title & Description
+        ==========================-->
         <section class="card" id="sec-1">
-          <details open>
+          <details>
             <summary>
-              <h2 class="h2">1. Project Title &amp; Description</h2>
+              <h2 class="h2">📋 1. Project Title &amp; Description</h2>
               <a class="anchor" href="#sec-1" title="Copy link">🔗</a>
               <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </summary>
             <div class="content">
-              <p><strong>Project Title:</strong> Professional Portfolio Website</p>
+              <p><strong>Project Title:</strong> IT Career Launch Portfolio</p>
               <p>This project delivers a professional portfolio website to showcase my resume, skills, and projects in a central, shareable format for potential employers and peers.</p>
-
-              <!-- Project Direction Summary (kept compact) -->
-              <div class="table-wrap">
-                <table aria-label="Project Direction Summary">
-                  <thead>
-                    <tr>
-                      <th>Outcome</th>
-                      <th>Scope</th>
-                      <th>Validation</th>
-                      <th>Deadline</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Secure ≥1 interview for an IT Support or Systems Analyst role.</td>
-                      <td>Launch a live portfolio with <strong>2 projects</strong> and <strong>≥5 technical skills</strong>.</td>
-                      <td>Collect ≥5 peer reviews and include the portfolio link in ≥5 job applications.</td>
-                      <td>Go-live by <strong>Dec 15, 2025</strong>.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="muted"><em>SMART Goal (Updated)</em> <span class="badge">Updated</span></p>
             </div>
           </details>
         </section>
 
-        <!-- 2 -->
+        <!-- =========================
+             2. Vision, Mission & Goal Alignment (UPDATED)
+        ==========================-->
         <section class="card" id="sec-2">
-          <details>
+          <details open>
             <summary>
-              <h2 class="h2">2. Vision, Mission &amp; Strategy Alignment</h2>
+              <h2 class="h2">🎯 2. Mission · Vision · SMART Goal</h2>
               <a class="anchor" href="#sec-2" title="Copy link">🔗</a>
               <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </summary>
             <div class="content">
-              <h4>Mission <span class="badge">Updated</span></h4>
-              <p>Build practical tech skills and present them clearly so I can earn early-career opportunities in IT support or systems analysis and contribute reliable solutions.</p>
+              <h4>Mission</h4>
+              <p>Build and present real, useful IT solutions while growing my technical skills and professional presence.</p>
 
-              <h4>Vision (3–5 years) <span class="badge">Updated</span></h4>
-              <p>Work as a Systems Analyst or IT Support Specialist at a tech-driven organization, be known for dependable problem-solving, and keep growing toward cloud and security competencies.</p>
+              <h4>Vision</h4>
+              <p>Within 3–5 years, work as an IT Support Specialist or Systems Analyst, contributing to reliable, user-friendly systems and being recognized for practical problem-solving.</p>
 
-              <h4>How the portfolio supports this</h4>
+              <h4>SMART Goal (this semester)</h4>
               <ul>
-                <li><strong>Skills evidence:</strong> 2 project case studies that demonstrate troubleshooting, documentation, and tooling.</li>
-                <li><strong>Professional presence:</strong> a clean, linkable site included on resume, email signature, and job applications.</li>
-                <li><strong>Feedback loop:</strong> peer reviews drive iteration before applications.</li>
+                <li><strong>Outcome:</strong> Secure at least <strong>1 interview</strong> for an IT Support or Systems Analyst role by the end of the semester.</li>
+                <li><strong>Output:</strong> Launch a live portfolio with <strong>≥ 2 projects</strong> and <strong>≥ 5 technical skills</strong> highlighted.</li>
+                <li><strong>Validation:</strong> Collect <strong>≥ 5 peer reviews</strong> (at least 1 non-peer) and submit the portfolio link in <strong>≥ 5 applications/outreach</strong>.</li>
+                <li><strong>Deadline:</strong> Go-live by <strong>Dec 15, 2025</strong>.</li>
               </ul>
+              <p class="muted">Note: Mobile polish is treated as a quality improvement under Deliverable 2 (not part of the SMART goal).</p>
             </div>
           </details>
         </section>
 
-        <!-- 3 -->
+        <!-- =========================
+             3. Business Case & Justification
+        ==========================-->
         <section class="card" id="sec-3">
           <details>
-            <summary><h2 class="h2">3. Business Case &amp; Justification</h2><a class="anchor" href="#sec-3" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">💼 3. Business Case &amp; Justification</h2>
+              <a class="anchor" href="#sec-3" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
               <h4>Professional Value</h4>
-              <p>Provides a polished artifact for applications and signals initiative and technical competency.</p>
-
+              <p>A polished portfolio strengthens job applications, shows initiative, and demonstrates technical competency to recruiters and hiring managers.</p>
               <h4>Personal Value</h4>
-              <p>Centralizes achievements, boosts confidence, and shows ownership of growth.</p>
-
+              <p>Consolidates achievements, builds confidence, and creates a reusable asset for networking and future roles.</p>
               <h4>Learning Outcomes</h4>
-              <p>Practice content organization, basic web implementation, presentation of evidence, and project planning.</p>
+              <p>Practice in content organization, web presentation, and core project-management skills (scope, scheduling, stakeholder engagement).</p>
             </div>
           </details>
         </section>
 
-        <!-- 4 -->
+        <!-- =========================
+             4. High-Level Scope
+        ==========================-->
         <section class="card" id="sec-4">
           <details>
-            <summary><h2 class="h2">4. High-Level Scope</h2><a class="anchor" href="#sec-4" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">📏 4. High-Level Scope</h2>
+              <a class="anchor" href="#sec-4" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
               <div class="grid grid-3">
                 <div class="scope in">
-                  <h4>✅ In Scope for Semester Project</h4>
+                  <h4>✅ In Scope (Semester)</h4>
                   <ul>
-                    <li>Choose platform and create site structure and navigation.</li>
-                    <li>About Me section with short bio and headshot.</li>
-                    <li>Project Showcase with <strong>2</strong> project write-ups (problem → approach → result).</li>
-                    <li>Skills section highlighting <strong>≥5</strong> technical skills.</li>
-                    <li>Contact section (form or links) and basic visual consistency.</li>
+                    <li>Resume optimization and content preparation</li>
+                    <li>Portfolio website (About, Projects, Skills, Contact)</li>
+                    <li>Two project case studies with visuals</li>
+                    <li>Peer testing and usability feedback</li>
+                    <li>Launch and professional outreach</li>
                   </ul>
                 </div>
-
                 <div class="scope road">
-                  <h4>🗺️ Roadmap Items (≤6 Months)</h4>
+                  <h4>🗺️ Roadmap (≤ 6 Months)</h4>
                   <ul>
-                    <li>Blog or updates page.</li>
-                    <li>Interactive demos or short walkthrough videos.</li>
-                    <li>Social links (LinkedIn, GitHub).</li>
-                    <li>Custom domain (e.g., samuelavila.com).</li>
+                    <li>Blog/updates section</li>
+                    <li>Interactive demos or walkthrough videos</li>
+                    <li>Dark mode toggle</li>
+                    <li>LinkedIn/GitHub integration</li>
+                    <li>Custom domain</li>
                   </ul>
                 </div>
-
                 <div class="scope out">
                   <h4>❌ Out of Scope</h4>
                   <ul>
-                    <li>Mobile app version.</li>
-                    <li>Advanced back-end (databases, auth).</li>
-                    <li>AI assistants or recommendation engines.</li>
+                    <li>Full mobile app</li>
+                    <li>User logins/auth</li>
+                    <li>Databases & complex backends</li>
+                    <li>AI features (chatbots/recommendations)</li>
+                    <li>Multi-user collaboration</li>
                   </ul>
                 </div>
               </div>
@@ -295,10 +289,16 @@
           </details>
         </section>
 
-        <!-- 5 -->
+        <!-- =========================
+             5. Stakeholder Register
+        ==========================-->
         <section class="card" id="sec-5">
           <details>
-            <summary><h2 class="h2">5. Stakeholder Register</h2><a class="anchor" href="#sec-5" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">👥 5. Stakeholder Register</h2>
+              <a class="anchor" href="#sec-5" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
               <div class="table-wrap">
                 <table class="stakeholder-table" aria-label="Stakeholder Register">
@@ -319,15 +319,15 @@
                       <td>Designer, developer, and content owner</td>
                       <td>High</td>
                       <td>High</td>
-                      <td><strong>Manage Closely</strong> — Set clear goals, track milestones, and review progress.</td>
+                      <td><strong>Manage Closely –</strong> Set clear goals, track milestones, review progress.</td>
                     </tr>
                     <tr>
                       <td>Instructor (Professor)</td>
                       <td>Internal</td>
-                      <td>Grader; provides feedback</td>
+                      <td>Feedback and grading</td>
                       <td>High</td>
                       <td>High</td>
-                      <td><strong>Manage Closely</strong> — Provide updates and incorporate feedback.</td>
+                      <td><strong>Manage Closely –</strong> Provide regular updates; incorporate feedback.</td>
                     </tr>
                     <tr>
                       <td>Class Peers</td>
@@ -335,15 +335,31 @@
                       <td>Peer critiques and user feedback</td>
                       <td>Low</td>
                       <td>Medium</td>
-                      <td><strong>Keep Informed</strong> — Share drafts; collect input.</td>
+                      <td><strong>Keep Informed –</strong> Share drafts during reviews; iterate.</td>
                     </tr>
                     <tr>
                       <td>Potential Employers/Recruiters</td>
                       <td>External</td>
-                      <td>Primary audience</td>
+                      <td>Assess skills for hiring</td>
                       <td>High</td>
                       <td>Medium</td>
-                      <td><strong>Keep Satisfied</strong> — Ensure professional polish; highlight relevant skills.</td>
+                      <td><strong>Keep Satisfied –</strong> Professional polish; clear skills/projects.</td>
+                    </tr>
+                    <tr>
+                      <td>Friends &amp; Family</td>
+                      <td>External</td>
+                      <td>Usability feedback</td>
+                      <td>Low</td>
+                      <td>Medium</td>
+                      <td><strong>Monitor –</strong> Invite for informal testing; collect impressions.</td>
+                    </tr>
+                    <tr>
+                      <td>IT / Hosting Providers</td>
+                      <td>External</td>
+                      <td>Hosting and availability</td>
+                      <td>High</td>
+                      <td>Low</td>
+                      <td><strong>Keep Satisfied –</strong> Follow hosting rules and best practices.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -357,12 +373,18 @@
           </details>
         </section>
 
-        <!-- 6 -->
+        <!-- =========================
+             6. Deliverables (UPDATED to 5, includes Resume first)
+        ==========================-->
         <section class="card" id="sec-6">
-          <details>
-            <summary><h2 class="h2">6. Deliverables</h2><a class="anchor" href="#sec-6" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+          <details open>
+            <summary>
+              <h2 class="h2">📦 6. Deliverables</h2>
+              <a class="anchor" href="#sec-6" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
-              <p>The following deliverables include their Definition of Done (DoD), major tasks, dependencies, and estimated effort.</p>
+              <p>The deliverables include their Definition of Done (DoD), major tasks, dependencies, and estimated effort.</p>
               <div class="table-wrap">
                 <table aria-label="Deliverables">
                   <thead>
@@ -376,71 +398,61 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Website Structure &amp; Layout</td>
-                      <td>Homepage + nav; ≥2 structured pages; consistent fonts/colors</td>
-                      <td>Choose platform, build homepage, add navigation, apply styles</td>
-                      <td>--</td>
-                      <td>96</td>
+                      <td><strong>D1. Resume Optimization &amp; Content Pack</strong></td>
+                      <td>Resume updated; tailored summary; skills list (≥5); PDF export ready.</td>
+                      <td>Revise resume; extract skills; gather headshot & bio; create PDF.</td>
+                      <td>—</td>
+                      <td>8</td>
                     </tr>
                     <tr>
-                      <td>Skills &amp; Contact Section</td>
-                      <td>≥5 skills listed; contact form/links functional <span class="badge">Updated</span></td>
-                      <td>Write skills content, build section, add form/links</td>
-                      <td>Website Structure &amp; Layout</td>
-                      <td>40</td>
+                      <td><strong>D2. Portfolio Website</strong></td>
+                      <td>Live site with About, Projects, Skills, Contact; consistent styles.</td>
+                      <td>Choose platform; build structure; apply theme; add nav; basic mobile polish.</td>
+                      <td>D1</td>
+                      <td>24</td>
                     </tr>
                     <tr>
-                      <td>Project Overview</td>
-                      <td><strong>2</strong> projects displayed with descriptions and visuals <span class="badge">Updated</span></td>
-                      <td>Write project summaries, collect visuals, build showcase page</td>
-                      <td>Website Structure &amp; Layout</td>
-                      <td>48</td>
+                      <td><strong>D3. Projects Showcase (2 case studies)</strong></td>
+                      <td>Two project pages with problem → solution → impact + visuals.</td>
+                      <td>Write summaries; collect screenshots; publish pages; link from home.</td>
+                      <td>D2</td>
+                      <td>18</td>
                     </tr>
                     <tr>
-                      <td>About Me Section</td>
-                      <td>Headshot uploaded, 100–150 word bio, formatted</td>
-                      <td>Write bio, add headshot, format section</td>
-                      <td>Website Structure &amp; Layout</td>
-                      <td>40</td>
+                      <td><strong>D4. Peer Feedback &amp; QA</strong></td>
+                      <td>≥5 reviews collected; issues fixed; short test report.</td>
+                      <td>Peer/user testing; track issues; fix; re-test.</td>
+                      <td>D2–D3</td>
+                      <td>8</td>
                     </tr>
                     <tr>
-                      <td>Certifications</td>
-                      <td>≥2 certifications listed with images; formatted consistently</td>
-                      <td>Gather certificates, add images, format section</td>
-                      <td>Website Structure &amp; Layout</td>
-                      <td>40</td>
-                    </tr>
-                    <tr>
-                      <td>Peer Feedback &amp; Testing</td>
-                      <td>≥5 peer reviews collected; improvements documented/applied <span class="badge">Updated</span></td>
-                      <td>Collect feedback, apply changes, retest</td>
-                      <td>All prior sections</td>
-                      <td>40</td>
-                    </tr>
-                    <tr>
-                      <td>Professional Visibility</td>
-                      <td>Portfolio shared; link included in ≥5 job applications <span class="badge">Updated</span></td>
-                      <td>Share on LinkedIn, update resume, submit 5 applications with link</td>
-                      <td>All deliverables</td>
-                      <td>32</td>
+                      <td><strong>D5. Launch &amp; Professional Visibility</strong></td>
+                      <td>Portfolio link shared on LinkedIn; added to resume; ≥5 applications/outreach sent.</td>
+                      <td>Post announcement; update resume/contact; submit applications; verify links.</td>
+                      <td>D1–D4</td>
+                      <td>6</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
-              <!-- Tiny external plan so "showcase" isn't hollow -->
-              <p class="muted"><em>External Visibility Plan:</em> LinkedIn announcement, resume + email signature link, and submit to ≥5 roles this semester. <span class="badge">Updated</span></p>
             </div>
           </details>
         </section>
 
-        <!-- 7 -->
+        <!-- =========================
+             7. Budget Estimation (UNCHANGED)
+        ==========================-->
         <section class="card" id="sec-7">
           <details>
-            <summary><h2 class="h2">7. Budget Estimation</h2><a class="anchor" href="#sec-7" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">💰 7. Budget Estimation</h2>
+              <a class="anchor" href="#sec-7" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
               <p>The following table outlines the estimated project budget including labor, equipment/software, materials, services, and contingency planning.</p>
               <div class="table-wrap">
+                <!-- Your original budget table preserved exactly -->
                 <table aria-label="Budget Estimation">
                   <thead>
                     <tr>
@@ -456,7 +468,7 @@
                     <tr><td>Developer</td><td>88</td><td>$45.00</td><td>$3,960.00</td><td>Website implementation, page layouts</td></tr>
                     <tr><td>Designer</td><td>64</td><td>$41.00</td><td>$2,624.00</td><td>Homepage wireframes, style consistency</td></tr>
                     <tr><td>Project Manager</td><td>64</td><td>$80.00</td><td>$5,120.00</td><td>Peer review, usability testing</td></tr>
-                    <tr><td>Tester</td><td>40</td><td>$53.00</td><td>$2,120.00</td><td>Testing layout and forms</td></tr>
+                    <tr><td>Tester</td><td>40</td><td>$53.00</td><td>$2,120.00</td><td>Testing responsive layout, forms</td></tr>
                     <tr><td>Business Analyst</td><td>72</td><td>$45.00</td><td>$3,240.00</td><td>Content integration, section planning</td></tr>
                     <tr><td>Other Role</td><td>0</td><td>$0.00</td><td>$0.00</td><td>N/A</td></tr>
                     <tr><td colspan="5"><strong>LABOR SUBTOTAL $17,064.00</strong></td></tr>
@@ -489,77 +501,102 @@
           </details>
         </section>
 
-        <!-- 8 -->
+        <!-- =========================
+             8. Project Methodology
+        ==========================-->
         <section class="card" id="sec-8">
           <details>
-            <summary><h2 class="h2">8. Project Methodology</h2><a class="anchor" href="#sec-8" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">⚙️ 8. Project Methodology</h2>
+              <a class="anchor" href="#sec-8" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
-              <h4>Part 1: Assess Requirements</h4>
-              <p>Requirements are moderately clear with some uncertainties; a Hybrid approach fits.</p>
+              <h4>Assessment</h4>
+              <p>Requirements are moderately clear with some areas evolving via feedback, so a Hybrid approach fits best.</p>
 
-              <h4>Part 2: Delivery Cadence</h4>
-              <p>Multiple incremental releases; each section treated as a functional slice.</p>
+              <h4>Delivery Cadence</h4>
+              <p>Multiple incremental releases: publish core site, then add projects and polish iteratively.</p>
 
-              <h4>Part 3: Approaches</h4>
+              <h4>Approaches Considered</h4>
               <ul>
-                <li><strong>Predictive:</strong> clear plan, less flexible.</li>
-                <li><strong>Hybrid–Incremental:</strong> visible progress in manageable chunks.</li>
-                <li><strong>Hybrid–Iterative:</strong> early improvements via peer review.</li>
-                <li><strong>Agile:</strong> flexible, but requires constant stakeholder time.</li>
+                <li><strong>Predictive:</strong> Clear upfront plan, less flexible.</li>
+                <li><strong>Hybrid–Incremental (chosen):</strong> Ship small, visible increments on a fixed schedule.</li>
+                <li><strong>Hybrid–Iterative:</strong> Heavier feedback cycles; risk of over-adjusting.</li>
+                <li><strong>Agile:</strong> Very flexible but needs continuous stakeholder time.</li>
               </ul>
 
-              <h4>Part 4: Chosen Methodology</h4>
-              <p><strong>Hybrid–Incremental</strong> for balance: structure + iteration.</p>
-
+              <h4>Diagram</h4>
               <figure class="media">
                 <img src="img/hybrid-incimental.png" alt="Hybrid-Incremental Methodology Diagram">
-                <figcaption class="muted">Figure: Hybrid–Incremental methodology phases across semester weeks.</figcaption>
+                <figcaption class="muted">Figure: Hybrid–Incremental phases across semester weeks.</figcaption>
               </figure>
             </div>
           </details>
         </section>
 
-        <!-- 9 -->
+        <!-- =========================
+             9. Project Tool Selection
+        ==========================-->
         <section class="card" id="sec-9">
           <details>
-            <summary><h2 class="h2">9. Project Tool Selection</h2><a class="anchor" href="#sec-9" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">🛠️ 9. Project Tool Selection</h2>
+              <a class="anchor" href="#sec-9" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
-              <p>Compared Trello, Monday.com, and Asana.</p>
-              <ul>
-                <li><strong>Trello:</strong> simple Kanban; lacks dependencies.</li>
-                <li><strong>Monday.com:</strong> rich but heavy/paid features.</li>
-                <li><strong>Asana:</strong> best balance; multiple views and dependencies.</li>
-              </ul>
-              <p>Selected <strong>Asana</strong> for Hybrid-Incremental planning.</p>
-
+              <p>Evaluated <strong>Trello</strong>, <strong>Monday.com</strong>, and <strong>Asana</strong>. <strong>Asana</strong> was chosen for list/board/timeline views, dependencies, and a solid free plan that fits Hybrid–Incremental planning.</p>
               <figure class="media">
                 <img src="img/asana-pic.png" alt="Asana Project Timeline Screenshot">
-                <figcaption class="muted">Figure: Asana Timeline view showing deliverables, dependencies, and schedule.</figcaption>
+                <figcaption class="muted">Figure: Asana Timeline showing deliverables, dependencies, and schedule.</figcaption>
               </figure>
             </div>
           </details>
         </section>
 
-        <!-- 10 -->
+        <!-- =========================
+             10. Structure & Reflection
+        ==========================-->
         <section class="card" id="sec-10">
           <details>
-            <summary><h2 class="h2">10. Structure &amp; Reflection</h2><a class="anchor" href="#sec-10" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">📂 10. Structure &amp; Reflection</h2>
+              <a class="anchor" href="#sec-10" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
-              <h4>Project Structure Overview</h4>
-              <p>Seven deliverables broken down into tasks and dependencies; mapped into Asana.</p>
+              <h4>Project Structure</h4>
+              <p>Work is organized into <strong>5 deliverables</strong> with clear dependencies (Resume → Site → Projects → QA → Launch). Tasks map to a simple timeline so progress is visible week-to-week.</p>
 
               <h4>Reflection</h4>
-              <p>List view was fast to stand up; Timeline required dates. Solo now, but roles can be split (Designer/Developer/Tester) in a team setting.</p>
+              <p>Asana helped translate the WBS into a trackable plan. Timeline view required due dates, which clarified pacing. Even as a solo project, explicit roles (designer/dev/tester) kept quality checks intentional.</p>
             </div>
           </details>
         </section>
 
-        <!-- 11 -->
+        <!-- =========================
+             11. Additional Charter Components (BACK, as requested)
+        ==========================-->
         <section class="card" id="sec-11">
           <details>
-            <summary><h2 class="h2">Additional Charter Components</h2><a class="anchor" href="#sec-11" title="Copy link">🔗</a><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <summary>
+              <h2 class="h2">📝 11. Additional Charter Components</h2>
+              <a class="anchor" href="#sec-11" title="Copy link">🔗</a>
+              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </summary>
             <div class="content">
-              <p><strong>Note for Future Updates:</strong> Add Risk Register, Acceptance Criteria, Milestones, Execution Plan, and Approvals as the course continues.</p>
+              <p><strong>Note for Future Updates:</strong> This charter will be expanded as we cover additional project management components including:</p>
+              <ul>
+                <li>Project Methodology Selection</li>
+                <li>Deliverables &amp; Definition of Done</li>
+                <li>High-Level Timeline &amp; Milestones</li>
+                <li>Execution Plan Overview</li>
+                <li>Risk Register</li>
+                <li>Acceptance Criteria</li>
+                <li>Project Manager Authority &amp; Approvals</li>
+              </ul>
+              <p class="muted">Keep this HTML file — you'll keep adding to it over the semester.</p>
             </div>
           </details>
         </section>
@@ -568,21 +605,21 @@
   </div>
 
   <script>
-    // ===== Theme toggle with persistence =====
+    // ===== Theme toggle with persistence (Light default, Dark optional) =====
     const themeBtn = document.getElementById('theme');
     function applyTheme(mode){
-      if(mode === 'light'){
-        document.documentElement.classList.add('light');
-        document.documentElement.style.colorScheme = 'light';
-      } else {
-        document.documentElement.classList.remove('light');
+      if(mode === 'dark'){
+        document.documentElement.classList.add('dark');
         document.documentElement.style.colorScheme = 'dark';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.style.colorScheme = 'light';
       }
       localStorage.setItem('theme', mode);
     }
-    applyTheme(localStorage.getItem('theme') || 'dark');
+    applyTheme(localStorage.getItem('theme') || 'light');
     themeBtn.addEventListener('click', ()=>{
-      const mode = document.documentElement.classList.contains('light') ? 'dark' : 'light';
+      const mode = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
       applyTheme(mode);
     });
 
