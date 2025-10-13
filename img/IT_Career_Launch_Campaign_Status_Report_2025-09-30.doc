@@ -1,0 +1,325 @@
+
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" 
+                      xmlns:w="urn:schemas-microsoft-com:office:word" 
+                      xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <meta charset="utf-8">
+                    <title>Weekly Project Status Report - IT Career Launch Campaign</title>
+                    <!--[if gte mso 9]>
+                    <xml>
+                        <w:WordDocument>
+                            <w:View>Print</w:View>
+                            <w:Zoom>90</w:Zoom>
+                            <w:DoNotPromptForConvert/>
+                            <w:DoNotShowInsertionsAndDeletions/>
+                        </w:WordDocument>
+                    </xml>
+                    <![endif]-->
+                    <style>
+                        @page {
+                            margin: 1in;
+                            size: 8.5in 11in;
+                        }
+                        body {
+                            font-family: 'Calibri', 'Arial', sans-serif;
+                            font-size: 11pt;
+                            line-height: 1.15;
+                            color: #333;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .header {
+                            background-color: #2d5d3b;
+                            color: #ffffff;
+                            padding: 20px;
+                            text-align: center;
+                            margin-bottom: 20px;
+                            border-radius: 8px;
+                        }
+                        .header h1 {
+                            font-size: 20pt;
+                            font-weight: bold;
+                            margin: 0 0 8px 0;
+                            color: #ffffff;
+                        }
+                        .header .subtitle {
+                            font-size: 14pt;
+                            margin: 0;
+                            color: #ffffff;
+                        }
+                        .header .timestamp {
+                            font-size: 10pt;
+                            font-style: italic;
+                            margin-top: 10px;
+                            color: #ffffff;
+                        }
+                        .section {
+                            margin-bottom: 25px;
+                            page-break-inside: avoid;
+                        }
+                        .section-title {
+                            background-color: #4a7c59;
+                            color: white;
+                            padding: 10px 15px;
+                            font-size: 14pt;
+                            font-weight: bold;
+                            margin: 0 0 10px 0;
+                            border-radius: 5px;
+                        }
+                        .info-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-bottom: 15px;
+                        }
+                        .info-table td {
+                            padding: 8px 12px;
+                            border: 1px solid #ddd;
+                            vertical-align: top;
+                        }
+                        .info-label {
+                            background-color: #f8f9fa;
+                            font-weight: bold;
+                            width: 25%;
+                        }
+                        .health-status {
+                            background-color: #fff3cd;
+                            color: #856404;
+                            font-weight: bold;
+                            padding: 8px 12px;
+                            border-radius: 5px;
+                            display: inline-block;
+                            margin: 5px 0;
+                        }
+                        .list-item {
+                            margin: 8px 0;
+                            padding: 5px 0;
+                            border-bottom: 1px solid #eee;
+                        }
+                        .milestone-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 10px 0;
+                        }
+                        .milestone-table th {
+                            background-color: #e8f5e8;
+                            color: #2d5d3b;
+                            padding: 10px;
+                            text-align: left;
+                            font-weight: bold;
+                            border: 1px solid #ccc;
+                        }
+                        .milestone-table td {
+                            padding: 8px 10px;
+                            border: 1px solid #ddd;
+                            vertical-align: top;
+                        }
+                        .risk-item {
+                            background-color: #fff8f0;
+                            border-left: 4px solid #ff9800;
+                            padding: 12px;
+                            margin: 10px 0;
+                            border-radius: 0 5px 5px 0;
+                        }
+                        .risk-header {
+                            font-weight: bold;
+                            color: #333;
+                            margin-bottom: 5px;
+                        }
+                        .severity-badge {
+                            display: inline-block;
+                            padding: 3px 8px;
+                            border-radius: 10px;
+                            font-size: 9pt;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            margin-left: 10px;
+                        }
+                        .severity-low { background-color: #d4edda; color: #155724; }
+                        .severity-medium { background-color: #fff3cd; color: #856404; }
+                        .severity-high { background-color: #f8d7da; color: #721c24; }
+                        .severity-critical { background-color: #d1ecf1; color: #0c5460; }
+                        .risk-mitigation {
+                            color: #666;
+                            font-style: italic;
+                            margin-top: 8px;
+                        }
+                        .changes-grid {
+                            margin: 10px 0;
+                        }
+                        .change-item {
+                            background-color: #f8f9fa;
+                            padding: 12px;
+                            margin: 8px 0;
+                            border-left: 3px solid #6c757d;
+                            border-radius: 0 5px 5px 0;
+                        }
+                        .change-label {
+                            font-weight: bold;
+                            color: #495057;
+                            margin-bottom: 5px;
+                        }
+                        .footer {
+                            text-align: center;
+                            margin-top: 40px;
+                            padding: 15px;
+                            background-color: #f8f9fa;
+                            border-radius: 5px;
+                            color: #666;
+                            font-size: 10pt;
+                            font-style: italic;
+                        }
+                        @media print {
+                            .section { page-break-inside: avoid; }
+                            .header { page-break-after: avoid; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>📊 Weekly Project Status Report</h1>
+                        <div class="subtitle">IT Career Launch Campaign</div>
+                        <div class="timestamp">Generated: Tuesday, September 30, 2025 at 02:56 AM</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">📝 Basic Information</div>
+                        <table class="info-table">
+                            <tr>
+                                <td class="info-label">Reporting Period:</td>
+                                <td>Week 6: Sept 22 - Sept 28, 2025</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Project Name:</td>
+                                <td>IT Career Launch Campaign</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Project Goal:</td>
+                                <td>Secure at least one interview for an entry-level IT role by the end of the semester. To support that goal, I will build a professional foundation through an optimized resume, a live portfolio, project showcases, peer feedback, and professional visibility efforts such as targeted job applications.</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Project Manager:</td>
+                                <td>Samuel Avila Varela</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">🏥 Project Health</div>
+                        <div class="health-status">🟡 AT RISK</div>
+                        <p><strong>Executive Summary:</strong> This week, most of my focus was spent on rethinking and restructuring the direction of my project. I updated my project charter and clearly defined the SMART goal to focus on securing an interview as the primary outcome. Although I did not complete execution tasks yet, I now have a clear strategic direction to guide all future deliverables.</p>
+                    </div>
+
+                    
+                    <div class="section">
+                        <div class="section-title">✅ Accomplishments This Week</div>
+                        
+                            <div class="list-item">
+                                <strong>1.</strong> ✓ Updated and refined the project charter to reflect the revised mission, vision, and SMART goal.
+                            </div>
+                        
+                            <div class="list-item">
+                                <strong>2.</strong> ✓ Clarified deliverables to ensure each one directly supports the ultimate objective of securing an interview.
+                            </div>
+                        
+                            <div class="list-item">
+                                <strong>3.</strong> ✓ Outlined the sequence of major project phases and started planning how they will connect to the final outcome.
+                            </div>
+                        
+                    </div>
+                    
+
+                    
+                    <div class="section">
+                        <div class="section-title">📅 Plan for Next Week</div>
+                        
+                            <div class="list-item">
+                                <strong>1.</strong> → Begin initial work on the resume and content preparation phase.
+                            </div>
+                        
+                            <div class="list-item">
+                                <strong>2.</strong> → Start drafting core materials such as my skills list, career summary, and project highlights.
+                            </div>
+                        
+                            <div class="list-item">
+                                <strong>3.</strong> → Explore job postings to identify what employers are looking for and tailor my content accordingly.
+                            </div>
+                        
+                    </div>
+                    
+
+                    
+                    <div class="section">
+                        <div class="section-title">🎯 Upcoming Milestones</div>
+                        <table class="milestone-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 45%;">Milestone</th>
+                                    <th style="width: 25%;">Target Date</th>
+                                    <th style="width: 30%;">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                        <tr>
+                                            <td>Resume & Skills Draft</td>
+                                            <td>10/4/2025</td>
+                                            <td>ON TRACK</td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td>Portfolio Structure & Setup</td>
+                                            <td>10/13/2025</td>
+                                            <td>ON TRACK</td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td>Peer Feedback & QA Round 1</td>
+                                            <td>10/20/2025</td>
+                                            <td>ON TRACK</td>
+                                        </tr>
+                                    
+                                        <tr>
+                                            <td>Launch & Job Applications</td>
+                                            <td>11/4/2025</td>
+                                            <td>ON TRACK</td>
+                                        </tr>
+                                    
+                            </tbody>
+                        </table>
+                    </div>
+                    
+
+                    <div class="section">
+                        <div class="section-title">⚠️ Issues & Risks / Mitigations</div>
+                        
+                            
+                                <div class="risk-item">
+                                    <div class="risk-header">
+                                        Execution tasks have not yet started, which could compress the schedule slightly.
+                                        <span class="severity-badge severity-low">LOW</span>
+                                    </div>
+                                    <div class="risk-mitigation"><strong>Mitigation:</strong> With the charter finalized and WBS in place, I plan to move directly into Deliverable 1 next week to build momentum and stay aligned with the project timeline.</div>
+                                </div>
+                            
+                        
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">🔄 Changes Since Last Report</div>
+                        <div class="changes-grid">
+                            
+                                <div class="change-item">
+                                    <div class="change-label">No changes to report</div>
+                                    <div>No changes occurred since the last reporting period.</div>
+                                </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        Generated by Class Project Status Template<br>
+                        Managing IT Projects Course
+                    </div>
+                </body>
+                </html>
+            
