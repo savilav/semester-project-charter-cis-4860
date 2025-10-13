@@ -114,6 +114,24 @@
       body{ background:#fff; color:#000 }
       section.card, .hero{ box-shadow:none; border:0 }
     }
+    
+    /* --- Purple "View Report" Button Polish --- */
+.scope a {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.scope a:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
   </style>
 </head>
 <body>
@@ -127,6 +145,8 @@
         <button class="btn" id="expandAll">Expand</button>
         <button class="btn" id="collapseAll">Collapse</button>
         <button class="btn" id="printBtn" title="Print / Save as PDF">Print</button>
+        <a href="#sec-status" class="btn">📊 Status Reports</a>
+
       </div>
     </div>
   </div>
@@ -149,6 +169,44 @@
         <h1>IT Career Launch Campaign</h1>
         <p class="meta">Student: <strong>Samuel Avila Varela</strong> · Course: <strong>Managing IT Projects</strong></p>
       </header>
+
+      <!-- =========================
+     📊 Status Reports (Visible Near Top)
+==========================-->
+<section class="card" id="sec-status">
+  <details open>
+    <summary>
+      <h2 class="h2">📊 Status Reports</h2>
+      <a class="anchor" href="#sec-status" title="Copy link">🔗</a>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </summary>
+    <div class="content">
+      <p class="muted">Weekly progress summaries and links to detailed reports are listed below.</p>
+
+      <div class="grid grid-3">
+        <div class="scope in">
+          <h4>📅 Week 6 – Sept 30, 2025</h4>
+          <p>Completed <strong>Resume Optimization &amp; Content Prep</strong> — updated summary, skills list, and Asana setup.</p>
+          <a href="img/IT_Career_Launch_Campaign_Status_Report_2025-09-30.doc" target="_blank">📄 View Report</a>
+        </div>
+
+        <div class="scope in">
+          <h4>📅 Week 7 – Oct 7, 2025</h4>
+          <p>Refined <strong>Deliverables</strong> and adopted <strong>Hybrid–Incremental methodology</strong> based on instructor feedback.</p>
+          <a href="img/IT_Career_Launch_Campaign_Status_Report_2025-10-07.doc" target="_blank">📄 View Report</a>
+        </div>
+
+        <div class="scope road">
+          <h4>📅 Week 8 – Oct 14, 2025</h4>
+          <p><em>In progress:</em> Project Charter iteration with peer review integration and updated Asana milestones.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+</section>
+
 
       <main id="sections" role="main">
         <!-- =========================
@@ -404,7 +462,7 @@
                     <tr>
                       <td><strong>D1. Resume Optimization &amp; Content Prep</strong></td>
                       <td>Finalized resume with tailored professional summary, ≥4 skills listed, and exported PDF version ready for review.</td>
-                      <td>Revise resume content; refine summary; organize skills; gather peer or instructor feedback; export PDF.</td>
+                      <td>Revise resume content; refine summary; organizse skills; gather peer or instructor feedback; export PDF.</td>
                       <td>—</td>
                       <td>8</td>
                     </tr>
@@ -509,35 +567,36 @@
              8. Project Methodology
         ==========================-->
         <section class="card" id="sec-8">
-          <details>
-            <summary>
-              <h2 class="h2">⚙️ 8. Project Methodology</h2>
-              <a class="anchor" href="#sec-8" title="Copy link">🔗</a>
-              <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </summary>
-            <div class="content">
-              <h4>Assessment</h4>
-              <p>Requirements are moderately clear with some areas evolving via feedback, so a Hybrid approach fits best.</p>
+  <details open>
+    <summary>
+      <h2 class="h2">⚙️ 8. Project Methodology</h2>
+      <a class="anchor" href="#sec-8" title="Copy link">🔗</a>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </summary>
+    <div class="content">
+      <h4>Assessment</h4>
+      <p>The project combines both creative and technical elements—resume optimization, skill documentation, project showcases, and online visibility. Because requirements evolve through feedback and peer review, a <strong>Hybrid–Incremental approach</strong> is the most effective fit.</p>
 
-              <h4>Delivery Cadence</h4>
-              <p>Multiple incremental releases: publish core site, then add projects and polish iteratively.</p>
+      <h4>Delivery Cadence</h4>
+      <p>Work is released in <strong>seven progressive phases</strong> aligned with semester weeks: Resume → Skills → Projects → Certifications → Feedback → Visibility → Launch. Each phase produces a tangible output that informs the next, ensuring steady progress without losing flexibility.</p>
 
-              <h4>Approaches Considered</h4>
-              <ul>
-                <li><strong>Predictive:</strong> Clear upfront plan, less flexible.</li>
-                <li><strong>Hybrid–Incremental (chosen):</strong> Ship small, visible increments on a fixed schedule.</li>
-                <li><strong>Hybrid–Iterative:</strong> Heavier feedback cycles; risk of over-adjusting.</li>
-                <li><strong>Agile:</strong> Very flexible but needs continuous stakeholder time.</li>
-              </ul>
+      <h4>Approaches Considered</h4>
+      <ul>
+        <li><strong>Predictive:</strong> Would lock scope too early, unsuitable for evolving feedback.</li>
+        <li><strong>Agile:</strong> Encourages rapid adaptation but less structured for academic deadlines.</li>
+        <li><strong>Hybrid–Incremental (chosen):</strong> Combines planned milestones with iterative improvement. Each deliverable is completed and reviewed before the next begins, maintaining visibility and control while supporting feedback-based updates.</li>
+      </ul>
 
-              <h4>Diagram</h4>
-              <figure class="media">
-                <img src="img/hybrid-incimental.png" alt="Hybrid-Incremental Methodology Diagram">
-                <figcaption class="muted">Figure: Hybrid–Incremental phases across semester weeks.</figcaption>
-              </figure>
-            </div>
-          </details>
-        </section>
+      <h4>Diagram</h4>
+      <figure class="media">
+        <img src="img/hybrid-incimental.png" alt="Hybrid–Incremental 7-Phase Diagram">
+        <figcaption class="muted">Figure: Seven-phase Hybrid–Incremental flow from Resume to Launch.</figcaption>
+      </figure>
+    </div>
+  </details>
+</section>
 
         <!-- =========================
              9. Project Tool Selection
@@ -607,6 +666,7 @@
       </main>
     </div>
   </div>
+
 
   <script>
     // ===== Theme toggle with persistence (Light default, Dark optional) =====
