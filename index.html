@@ -99,6 +99,22 @@
     /* Images */
     .media{ text-align:center; margin-top:16px }
     .media img{ width:100%; max-width:900px; border-radius:12px; box-shadow:0 0 15px color-mix(in oklab, var(--brand) 25%, transparent); background:var(--surface); border:1px solid rgba(16,24,40,.08); display:block; margin:0 auto }
+    .media.two-images {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.media.two-images img {
+  width: 48%;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px color-mix(in oklab, var(--brand) 25%, transparent);
+  border: 1px solid rgba(16,24,40,.08);
+  background: var(--surface);
+}
+
 
     /* Scope cards */
     .grid{ display:grid; gap:12px }
@@ -130,7 +146,24 @@
 .scope a:hover {
   filter: brightness(1.15);
   transform: translateY(-2px);
+}/* Consistent spacing between sections */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px; /* cleaner spacing */
+  margin-bottom: 40px;
 }
+
+/* Even padding inside cards */
+section.card .content {
+  padding: 20px 24px 26px;
+}
+
+/* Smooth rounded bottom edges when open */
+details[open] .content {
+  border-top: 1px solid rgba(16,24,40,.08);
+}
+
 
   </style>
 </head>
@@ -187,6 +220,16 @@
       <p class="muted">Weekly progress summaries and links to detailed reports are listed below.</p>
 
       <div class="grid grid-3">
+        
+        <!-- Week 11 -->
+        <div class="scope in">
+          <h4>📅 Week 11 - Oct 27- Nov 2, 2025</h4>
+          <p>
+            Started the Coursera <em>Cybersecurity Assessment (CompTIA Security+)</em> course for certification progress. 
+            Deliverables 5 and 6 were updated to focus on real job applications and interviews. 
+            Next step: finish more Coursera modules and begin applying to IT jobs.          </p>
+          <a href="img/IT_Career_Launch_Campaign_Status_Report_2025-11-02.pdf" target="_blank">📄 View Report</a>
+        </div>
 
         <!-- Week 10 -->
         <div class="scope in">
@@ -264,7 +307,7 @@
              2. Mission · Vision · SMART Goal (UPDATED FROM FIRST CODE)
         ==========================-->
         <section class="card" id="sec-2">
-          <details open>
+          <details >
             <summary>
               <h2 class="h2">🎯 2. Mission · Vision · SMART Goal</h2>
               <a class="anchor" href="#sec-2" title="Copy link">🔗</a>
@@ -308,14 +351,14 @@
              4. High-Level Scope
         ==========================-->
         <section class="card" id="sec-4">
-  <details open>
-    <summary>
+          <details >
+          <summary>
       <h2 class="h2">📏 4. High-Level Scope</h2>
       <a class="anchor" href="#sec-4" title="Copy link">🔗</a>
       <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-    </summary>
+       </summary>
 
     <div class="content">
       <p>
@@ -451,7 +494,7 @@
              6. Deliverables
         ==========================-->
        <section class="card" id="sec-6">
-  <details open>
+  <details>
     <summary>
       <h2 class="h2">📦 6. Deliverables</h2>
       <a class="anchor" href="#sec-6" title="Copy link">🔗</a>
@@ -517,22 +560,25 @@
             </tr>
 
             <!-- D5 -->
-            <tr>
-              <td><strong>Deliverable 5 – Professional Visibility & Feedback</strong></td>
-              <td>Portfolio link and cert evidence shared on LinkedIn & GitHub; ≥ 3 feedback responses collected and incorporated into final site updates.</td>
-              <td>Publish posts · Request reviews · Log comments in Asana · Revise content based on feedback.</td>
-              <td>Deliverable 4</td>
-              <td>6</td>
-            </tr>
+<tr>
+  <td><strong>Deliverable 5 – Professional Visibility & Applications</strong></td>
+  <td>Portfolio link and certification progress shared publicly; ≥ 3 feedback responses incorporated. Submit ≥ 5 real IT job applications with proof (screenshots or tracking sheet).</td>
+  <td>Publish portfolio update · Request reviews · Apply feedback · Submit applications · Track results · Update site with outcomes</td>
+  <td>Deliverable 4</td>
+  <td>6</td>
+</tr>
+
 
             <!-- D6 -->
-            <tr>
-              <td><strong>Deliverable 6 – Launch & Interview Preparation</strong></td>
-              <td>All career materials finalized and used to apply for ≥ 5 roles or secure ≥ 1 interview; reflection and presentation ready for final showcase.</td>
-              <td>Finalize materials · Submit applications · Record results · Prepare presentation and reflection.</td>
-              <td>Deliverables 1–5</td>
-              <td>6</td>
-            </tr>
+<tr>
+  <td><strong>Deliverable 6 – Launch, Reflection & Interview Execution</strong></td>
+  <td>Participate in ≥ 1 real interview and finalize reflection documentation (lessons learned, STAR stories, project closure summary). Complete peer feedback and prepare the final showcase presentation demonstrating career readiness.</td>
+  <td>Participate in interview · Reflect on outcomes · Write closure summary · Build STAR stories · Peer review · Prepare showcase presentation</td>
+  <td>Deliverables 1–5</td>
+  <td>6</td>
+</tr>
+
+
 
             <!-- Total -->
             <tr>
@@ -551,15 +597,123 @@
     </div>
   </details>
 </section>
+<!-- =========================
+     7. Work Breakdown Structure (WBS)
+==========================-->
+<section class="card" id="sec-7">
+  <details>
+    <summary>
+      <h2 class="h2">🧱 7. Work Breakdown Structure (WBS)</h2>
+      <a class="anchor" href="#sec-7" title="Copy link">🔗</a>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </summary>
+    <div class="content">
+      <p>
+        The <strong>Work Breakdown Structure (WBS)</strong> divides the project into six major deliverables,
+        each containing smaller work packages and tasks. Durations are approximate and based on hybrid-incremental
+        scheduling within Asana.
+      </p>
+
+      <div class="table-wrap">
+        <table aria-label="Work Breakdown Structure">
+          <thead>
+            <tr>
+              <th>WBS ID</th>
+              <th>Level</th>
+              <th>Task / Work Package Name</th>
+              <th>Duration</th>
+              <th>Dependencies</th>
+              <th>Parallel</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Deliverable 1 -->
+            <tr><td>1</td><td>Deliverable</td><td>Resume Optimization & Content Prep</td><td>7 days</td><td>–</td><td>–</td></tr>
+            <tr><td>1.1</td><td>Work Package</td><td>Resume & Skills Draft</td><td>3 days</td><td>–</td><td>–</td></tr>
+            <tr><td>1.1.1</td><td>Task</td><td>Update resume with tailored summary</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>1.1.2</td><td>Task</td><td>List ≥4 technical/professional skills</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>1.1.3</td><td>Task</td><td>Export final PDF resume</td><td>1 day</td><td>1.1.2</td><td>–</td></tr>
+            <tr><td>1.2</td><td>Work Package</td><td>Personal Branding Elements</td><td>4 days</td><td>1.1</td><td>–</td></tr>
+            <tr><td>1.2.1</td><td>Task</td><td>Write bio and career goals (100–150 words)</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>1.2.2</td><td>Task</td><td>Collect headshot and visuals</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>1.2.3</td><td>Task</td><td>Proofread content and format</td><td>1 day</td><td>1.2.1</td><td>–</td></tr>
+
+            <!-- Deliverable 2 -->
+            <tr><td>2</td><td>Deliverable</td><td>Portfolio Website Development</td><td>10 days</td><td>1</td><td>–</td></tr>
+            <tr><td>2.1</td><td>Work Package</td><td>Website Structure & Setup</td><td>4 days</td><td>–</td><td>–</td></tr>
+            <tr><td>2.1.1</td><td>Task</td><td>Choose platform (GitHub Pages/Wix)</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>2.1.2</td><td>Task</td><td>Build homepage and navigation</td><td>2 days</td><td>2.1.1</td><td>–</td></tr>
+            <tr><td>2.1.3</td><td>Task</td><td>Apply fonts/colors/layout consistency</td><td>1 day</td><td>2.1.2</td><td>–</td></tr>
+            <tr><td>2.2</td><td>Work Package</td><td>Core Pages Development</td><td>6 days</td><td>2.1</td><td>–</td></tr>
+            <tr><td>2.2.1</td><td>Task</td><td>Create About Me page</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>2.2.2</td><td>Task</td><td>Add Skills and Contact sections</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>2.2.3</td><td>Task</td><td>Test navigation and responsiveness</td><td>2 days</td><td>2.2.2</td><td>–</td></tr>
+
+            <!-- Deliverable 3 -->
+            <tr><td>3</td><td>Deliverable</td><td>Projects Showcase (Case Studies)</td><td>7 days</td><td>2</td><td>–</td></tr>
+            <tr><td>3.1</td><td>Work Package</td><td>Project Upload & Content</td><td>4 days</td><td>–</td><td>–</td></tr>
+            <tr><td>3.1.1</td><td>Task</td><td>Write summaries for 2 projects</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>3.1.2</td><td>Task</td><td>Add visuals/screenshots</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>3.1.3</td><td>Task</td><td>Publish project pages</td><td>1 day</td><td>3.1.1</td><td>–</td></tr>
+            <tr><td>3.2</td><td>Work Package</td><td>Showcase Integration</td><td>3 days</td><td>3.1</td><td>–</td></tr>
+            <tr><td>3.2.1</td><td>Task</td><td>Link project pages from homepage</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>3.2.2</td><td>Task</td><td>Review clarity and completeness</td><td>2 days</td><td>–</td><td>–</td></tr>
+
+            <!-- Deliverable 4 -->
+            <tr><td>4</td><td>Deliverable</td><td>Certification & Skills Validation</td><td>6 days</td><td>3</td><td>–</td></tr>
+            <tr><td>4.1</td><td>Work Package</td><td>Course Enrollment & Tracking</td><td>3 days</td><td>–</td><td>–</td></tr>
+            <tr><td>4.1.1</td><td>Task</td><td>Enroll in Coursera Cybersecurity Assessment (CySA+)</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>4.1.2</td><td>Task</td><td>Complete first 2 modules and capture progress screenshot</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>4.2</td><td>Work Package</td><td>Certification Integration</td><td>3 days</td><td>4.1</td><td>–</td></tr>
+            <tr><td>4.2.1</td><td>Task</td><td>Add certification progress badge to portfolio</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>4.2.2</td><td>Task</td><td>Validate content with peer feedback</td><td>2 days</td><td>–</td><td>–</td></tr>
+
+            <!-- Deliverable 5 -->
+            <tr><td>5</td><td>Deliverable</td><td>Professional Visibility & Applications</td><td>7 days</td><td>4</td><td>–</td></tr>
+            <tr><td>5.1</td><td>Work Package</td><td>Portfolio Launch Campaign</td><td>3 days</td><td>–</td><td>–</td></tr>
+            <tr><td>5.1.1</td><td>Task</td><td>Share portfolio link on LinkedIn/Handshake</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>5.1.2</td><td>Task</td><td>Collect ≥3 peer/professor feedback comments</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>5.1.3</td><td>Task</td><td>Update portfolio based on feedback</td><td>1 day</td><td>5.1.2</td><td>–</td></tr>
+            <tr><td>5.2</td><td>Work Package</td><td>Job Applications</td><td>4 days</td><td>5.1</td><td>–</td></tr>
+            <tr><td>5.2.1</td><td>Task</td><td>Submit ≥5 IT job applications (LinkedIn, Handshake)</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>5.2.2</td><td>Task</td><td>Track responses and interview scheduling</td><td>2 days</td><td>–</td><td>–</td></tr>
+
+            <!-- Deliverable 6 -->
+            <tr><td>6</td><td>Deliverable</td><td>Launch, Reflection & Interview Execution</td><td>8 days</td><td>5</td><td>–</td></tr>
+            <tr><td>6.1</td><td>Work Package</td><td>Interview Participation & Tracking</td><td>3 days</td><td>–</td><td>–</td></tr>
+            <tr><td>6.1.1</td><td>Task</td><td>Complete at least one interview (or mock if needed)</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>6.1.2</td><td>Task</td><td>Document interview outcomes and key takeaways</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>6.2</td><td>Work Package</td><td>Reflection Write-Up</td><td>3 days</td><td>6.1</td><td>–</td></tr>
+            <tr><td>6.2.1</td><td>Task</td><td>Write reflection using STAR stories</td><td>2 days</td><td>–</td><td>–</td></tr>
+            <tr><td>6.2.2</td><td>Task</td><td>Summarize skills growth and career insights</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>6.3</td><td>Work Package</td><td>Final Showcase Preparation</td><td>2 days</td><td>6.2</td><td>–</td></tr>
+            <tr><td>6.3.1</td><td>Task</td><td>Create slides and rehearse presentation</td><td>1 day</td><td>–</td><td>–</td></tr>
+            <tr><td>6.3.2</td><td>Task</td><td>Submit final showcase materials to Canvas</td><td>1 day</td><td>6.3.1</td><td>–</td></tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted">
+        The WBS spans 6 major deliverables and 48 estimated project hours.  
+        Each deliverable is tracked in Asana for dependencies and progress visualization through timeline and list views.
+      </p>
+    </div>
+  </details>
+</section>
+
 
 
         <!-- =========================
-             7. Budget Estimation
+             8. Budget Estimation
         ==========================-->
         <section class="card" id="sec-7">
           <details>
               <summary>
-      <h2 class="h2">💰 7. Budget (Cash Only)</h2>
+      <h2 class="h2">💰 8. Budget </h2>
       <a class="anchor" href="#sec-7" title="Copy link">🔗</a>
       <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -648,12 +802,12 @@
 </section>
 
         <!-- =========================
-             8. Project Methodology
+             9. Project Methodology
         ==========================-->
         <section class="card" id="sec-8">
-  <details open>
+  <details >
     <summary>
-      <h2 class="h2">⚙️ 8. Project Methodology</h2>
+      <h2 class="h2">⚙️ 9. Project Methodology</h2>
       <a class="anchor" href="#sec-8" title="Copy link">🔗</a>
       <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -676,13 +830,13 @@
       </p>
 
       <ol>
-        <li><strong>Deliverable 1 – Foundation (Weeks 5–6):</strong> Finalize résumé and professional goals aligned with IT career direction.</li>
-        <li><strong>Deliverable 2 – Portfolio Website Setup (Weeks 7–8):</strong> Create and deploy a professional GitHub Pages portfolio as the hub for all future deliverables.</li>
-        <li><strong>Deliverable 3 – Evidence Development (Weeks 9–10):</strong> Write and upload two project case studies (Hive Sentiment Analysis and Network Design), including visuals and proof artifacts.</li>
-        <li><strong>Deliverable 4 – Certification & Skills Validation (Weeks 10–11):</strong> Complete a Coursera or CompTIA-based practice exam to demonstrate continuous upskilling, posting the badge or proof on the portfolio.</li>
-        <li><strong>Deliverable 5 – Professional Visibility & Feedback (Weeks 11–12):</strong> Update LinkedIn and GitHub profiles with the portfolio link; collect at least three feedback entries and apply improvements.</li>
-        <li><strong>Deliverable 6 – Launch & Interview Preparation (Weeks 13–17):</strong> Submit job applications or conduct a mock interview, complete the reflection write-up, and prepare for the final project showcase.</li>
-      </ol>
+  <li><strong>Deliverable 1 – Foundation (Weeks 5–6):</strong> Finalize résumé and career goals aligned with IT career direction.</li>
+  <li><strong>Deliverable 2 – Portfolio Website Setup (Weeks 7–8):</strong> Create and deploy a GitHub Pages portfolio as the hub for all future deliverables.</li>
+  <li><strong>Deliverable 3 – Evidence Development (Weeks 9–10):</strong> Write and upload two project case studies (Hive Sentiment Analysis and Network Design) with visuals and proof artifacts.</li>
+  <li><strong>Deliverable 4 – Certification & Skills Validation (Weeks 10–11):</strong> Complete a Coursera or CompTIA-based practice exam to demonstrate upskilling, posting the badge or proof on the portfolio.</li>
+  <li><strong>Deliverable 5 – Professional Visibility & Applications (Weeks 11–12):</strong> Publish portfolio and certification updates publicly, gather ≥ 3 feedback entries and apply improvements, and submit ≥ 5 real job applications with proof of submission.</li>
+  <li><strong>Deliverable 6 – Launch, Reflection & Interview Execution (Weeks 13–17):</strong> Participate in at least one real interview, complete reflection materials (lessons learned, STAR stories), and prepare the final showcase presentation demonstrating professional readiness.</li>
+</ol>
 
       <p>
         Progress is documented weekly through status updates, Asana tracking, and charter revisions. 
@@ -701,64 +855,25 @@
 </section>
 
         <!-- =========================
-             9. Project Tool Selection
+             10. Project Tool Selection
         ==========================-->
         <section class="card" id="sec-9">
           <details>
             <summary>
-              <h2 class="h2">🛠️ 9. Project Tool Selection</h2>
+              <h2 class="h2">🛠️ 10. Project Tool Selection</h2>
               <a class="anchor" href="#sec-9" title="Copy link">🔗</a>
               <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </summary>
             <div class="content">
               <p>Evaluated <strong>Trello</strong>, <strong>Monday.com</strong>, and <strong>Asana</strong>. <strong>Asana</strong> was chosen for list/board/timeline views, dependencies, and a solid free plan that fits Hybrid–Incremental planning.</p>
-              <figure class="media">
-                <img src="img/asana-pic.png" alt="Asana Project Timeline Screenshot">
-                <figcaption class="muted">Figure: Asana Timeline showing deliverables, dependencies, and schedule.</figcaption>
-              </figure>
+              <figure class="media two-images">
+  <img src="img/asana-pic.png" alt="Asana Project Timeline Screenshot 1">
+  <img src="img/Asana-pic2.png" alt="Asana Project Timeline Screenshot 2">
+  <figcaption class="muted">
+    Figure: Asana board and timeline views showing deliverables, dependencies, and weekly milestones.
+  </figcaption>
+</figure>
             </div>
-          </details>
-        </section>
-
-        <!-- =========================
-             10. Structure & Reflection
-        ==========================-->
-        <section class="card" id="sec-10">
-  <details open>
-    <summary>
-      <h2 class="h2">🧭 10. Reflection</h2>
-      <a class="anchor" href="#sec-10" title="Copy link">🔗</a>
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </summary>
-
-    <div class="content">
-      <p>
-        Over the past few weeks, the project has evolved significantly. 
-        The charter was restructured to include six deliverables instead of five, introducing a dedicated 
-        <strong>Portfolio Website Setup</strong> and a <strong>Certification & Skills Validation</strong> stage. 
-        This new sequence better represents the real-world workflow of building, proving, and showcasing IT skills.
-      </p>
-
-      <p>
-        By Week 10, the portfolio website is now live, fully functional, and ready to host project evidence. 
-        The next focus is developing the <strong>Evidence Development</strong> section and enrolling in the selected Coursera certification course 
-        to complete Deliverable 4. This restructuring has improved pacing and clarity — every deliverable now contributes 
-        directly to employability and measurable professional outcomes.
-      </p>
-
-      <p>
-        Key takeaways from this revision include learning how to adapt project plans dynamically, 
-        using Asana dependencies to visualize workflow, and maintaining professional presentation consistency 
-        across HTML documentation, project evidence, and external platforms like LinkedIn and GitHub.
-      </p>
-    </div>
-  </details>
-      </section>
-
-       
-
 
   <script>
     // ===== Theme toggle with persistence (Light default, Dark optional) =====
@@ -842,6 +957,9 @@
     // Open first content section by default (after Student Info)
     const first = document.querySelector('main > section:not(#student-info) details');
     if(first) first.open = true;
+    // Collapse all sections on page load
+document.querySelectorAll('main details').forEach(d => d.open = false);
+
   </script>
 </body>
 </html>
