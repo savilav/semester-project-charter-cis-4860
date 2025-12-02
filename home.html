@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Career Launch Portfolio – Samuel Avila Varela</title>
+
+<!-- Import your design tokens exactly like index.html -->
+<style>
+    :root{
+      --bg:#ffffff;
+      --surface:#fbfbfc;
+      --muted:#eef2f6;
+      --ink:#0d1b2a;
+      --ink-2:#4a5568;
+      --brand:#7c3aed;
+      --brand-2:#2563eb;
+      --danger:#ef4444;
+      --radius:16px;
+      --shadow:0 10px 24px rgba(16,24,40,.10);
+      --gradient: radial-gradient(1200px 800px at 80% -10%, rgba(124,58,237,.10), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(37,99,235,.07), transparent 60%);
+    }
+
+    html.dark{
+      --bg:#0b0c0e;
+      --surface:#121418;
+      --muted:#1a1d23;
+      --ink:#e8ebf0;
+      --ink-2:#b7c1d1;
+      --brand:#8b5cf6;
+      --brand-2:#60a5fa;
+      --shadow:0 12px 32px rgba(0,0,0,.35);
+      --gradient: radial-gradient(1200px 800px at 80% -10%, rgba(139,92,246,.10), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(96,165,250,.07), transparent 60%);
+    }
+
+    body{
+      margin:0;
+      padding:40px 20px;
+      background:var(--gradient), var(--bg);
+      color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      text-align:center;
+    }
+
+    h1{
+      font-size:2.8rem;
+      margin-bottom:6px;
+      font-weight:900;
+      color:var(--brand);
+    }
+
+    .subtitle{
+      font-size:1rem;
+      color:var(--ink-2);
+      margin-bottom:30px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    @media(max-width:900px){
+      .grid{ grid-template-columns:1fr; gap:20px; }
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid rgba(16,24,40,.08);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      padding:28px;
+      text-decoration:none;
+      color:var(--ink);
+      transition:.25s ease;
+      font-weight:700;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+    }
+
+    .card span{
+      font-size:2rem;
+      display:block;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 40px rgba(124,58,237,0.25);
+      border-color:var(--brand);
+    }
+
+    /* Theme button (same as index.html topbar buttons) */
+    .btn{
+      border:1px solid rgba(16,24,40,.14);
+      background:var(--muted);
+      color:var(--ink);
+      padding:8px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+      margin-bottom:30px;
+    }
+</style>
+</head>
+
+<body>
+
+<button class="btn" id="theme">Toggle Theme</button>
+
+<h1>Career Launch Portfolio</h1>
+<div class="subtitle">
+  Samuel Avila Varela · Managing IT Projects · Fall 2025
+</div>
+
+<div class="grid">
+
+    <a class="card" href="index.html#sec-charter">
+        <span>📄</span>
+        Project Charter
+    </a>
+
+    <a class="card" href="index.html#sec-status">
+        <span>📊</span>
+        Status Reports
+    </a>
+
+    <a class="card" href="index.html#sec-interviews">
+        <span>🎤</span>
+        Stakeholder Interviews
+    </a>
+
+    <a class="card" href="index.html#sec-closure">
+        <span>📘</span>
+        Closure Documents
+    </a>
+
+    <a class="card" href="index.html#sec-star">
+        <span>⭐</span>
+        STAR Stories
+    </a>
+
+    <a class="card" href="index.html">
+        <span>📁</span>
+        Full Project Charter
+    </a>
+
+</div>
+
+<script>
+  // SAME theme toggle as index.html
+  const themeBtn = document.getElementById('theme');
+  function applyTheme(mode){
+    if(mode === 'dark'){
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
+    }
+    localStorage.setItem('theme', mode);
+  }
+  applyTheme(localStorage.getItem('theme') || 'light');
+  themeBtn.addEventListener('click', ()=>{
+    const mode = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    applyTheme(mode);
+  });
+</script>
+
+</body>
+</html>
